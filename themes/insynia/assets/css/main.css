@@ -1,13 +1,13 @@
 /**
  * Insynia Theme — Main Stylesheet
  *
- * Design system built from TwentyTwentyFive brand color palette:
- *   Primary (#4B52FF)  — Twilight accent-1: vibrant blue-purple
- *   Primary Dark (#503AA8) — Base theme accent-3: deep purple
- *   Secondary (#FF7A5C) — Twilight accent-2: coral
- *   Accent (#FFEE58)   — Base theme accent-1: golden yellow
- *   Base (#FFFFFF)     — Base theme: white
- *   Contrast (#111111) — Base theme: near-black
+ * Design system built on the Wise.com brand color palette:
+ *   Primary (#9FE870)      — Wise Bright Green: signature brand color
+ *   Primary Dark (#163300) — Wise Forest Green: links, hover, dark accents
+ *   Secondary (#FFC091)    — Wise Bright Orange: secondary actions
+ *   Accent (#FFEB69)       — Wise Bright Yellow: highlights
+ *   Base (#FFFFFF)         — White: page background
+ *   Contrast (#0E0F0C)     — Wise Content Primary: near-black text
  *
  * @package Insynia
  */
@@ -17,34 +17,34 @@
    ========================================================================== */
 
 :root {
-	/* ---- Brand Colors (from TwentyTwentyFive palette) ---- */
-	--color-primary:        #4B52FF; /* Twilight accent-1 */
-	--color-primary-dark:   #503AA8; /* Base accent-3 */
-	--color-primary-light:  #E8E9FF; /* Tint of primary */
-	--color-secondary:      #FF7A5C; /* Twilight accent-2 */
-	--color-accent:         #FFEE58; /* Base accent-1 */
+	/* ---- Brand Colors (Wise.com palette) ---- */
+	--color-primary:        #9FE870; /* Wise Bright Green */
+	--color-primary-dark:   #163300; /* Wise Forest Green */
+	--color-primary-light:  #E8F9DC; /* Tint of Bright Green */
+	--color-secondary:      #FFC091; /* Wise Bright Orange */
+	--color-accent:         #FFEB69; /* Wise Bright Yellow */
 
 	/* ---- Neutral Palette ---- */
-	--color-base:           #FFFFFF; /* Base: white */
-	--color-surface:        #FBFAF3; /* Base accent-5: off-white */
-	--color-surface-alt:    #F0F0F0; /* Evening contrast: light gray */
-	--color-contrast:       #111111; /* Base contrast: near-black */
-	--color-muted:          #686868; /* Base accent-4: medium gray */
-	--color-border:         #E2E2E2; /* Dusk base: light gray */
+	--color-base:           #FFFFFF; /* White */
+	--color-surface:        #F3F9EE; /* Wise green-tinted surface */
+	--color-surface-alt:    #E8F0E4; /* Deeper green-gray */
+	--color-contrast:       #0E0F0C; /* Wise Content Primary */
+	--color-muted:          #6A6C6A; /* Wise Content Tertiary */
+	--color-border:         #D9E8D0; /* Wise-tinted border */
 
 	/* ---- Semantic Colors ---- */
 	--color-text:           var(--color-contrast);
 	--color-text-muted:     var(--color-muted);
 	--color-bg:             var(--color-base);
-	--color-link:           var(--color-primary);
-	--color-link-hover:     var(--color-primary-dark);
-	--color-focus-ring:     var(--color-primary);
+	--color-link:           var(--color-primary-dark);
+	--color-link-hover:     #0D1F00;
+	--color-focus-ring:     var(--color-primary-dark);
 
 	/* ---- State Colors ---- */
-	--color-success:        #22c55e;
-	--color-warning:        #f59e0b;
-	--color-error:          #ef4444;
-	--color-info:           var(--color-primary);
+	--color-success:        #2F5711; /* Wise Sentiment Positive */
+	--color-warning:        #EDC843; /* Wise Sentiment Warning */
+	--color-error:          #A8200D; /* Wise Sentiment Negative */
+	--color-info:           var(--color-primary-dark);
 
 	/* ---- Typography ---- */
 	--font-sans:            'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -114,7 +114,7 @@
 	--shadow:     0 4px 12px rgba(0, 0, 0, 0.10), 0 2px 4px rgba(0, 0, 0, 0.06);
 	--shadow-md:  0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 	--shadow-lg:  0 16px 40px rgba(0, 0, 0, 0.14), 0 8px 16px rgba(0, 0, 0, 0.08);
-	--shadow-focus: 0 0 0 3px rgba(75, 82, 255, 0.4);
+	--shadow-focus: 0 0 0 3px rgba(22, 51, 0, 0.35);
 
 	/* ---- Transitions ---- */
 	--transition-fast:   0.1s ease;
@@ -1168,28 +1168,28 @@ h6 { font-size: var(--font-size-sm);   font-weight: var(--font-weight-semibold);
 /* Primary */
 .btn--primary {
 	background-color: var(--color-primary);
-	color: #fff;
+	color: var(--color-primary-dark); /* Dark text on light green — WCAG AA */
 	border-color: var(--color-primary);
 }
 
 .btn--primary:hover {
 	background-color: var(--color-primary-dark);
 	border-color: var(--color-primary-dark);
-	color: #fff;
+	color: #fff; /* White text on dark Forest Green — WCAG AAA */
 	box-shadow: var(--shadow);
 }
 
 /* Secondary */
 .btn--secondary {
 	background-color: var(--color-secondary);
-	color: #fff;
+	color: var(--color-contrast); /* Dark text on light orange — WCAG AA */
 	border-color: var(--color-secondary);
 }
 
 .btn--secondary:hover {
-	background-color: #e85a3a;
-	border-color: #e85a3a;
-	color: #fff;
+	background-color: #E89A6A; /* Darkened Wise Bright Orange */
+	border-color: #E89A6A;
+	color: var(--color-contrast);
 }
 
 /* Outline */
@@ -1223,8 +1223,8 @@ h6 { font-size: var(--font-size-sm);   font-weight: var(--font-weight-semibold);
 }
 
 .btn--accent:hover {
-	background-color: #f0de00;
-	border-color: #f0de00;
+	background-color: #F0D63D; /* Darkened Wise Bright Yellow */
+	border-color: #F0D63D;
 }
 
 /* WordPress core button */
@@ -1236,7 +1236,7 @@ button[type="submit"] {
 	align-items: center;
 	padding: var(--space-3) var(--space-6);
 	background-color: var(--color-primary);
-	color: #fff;
+	color: var(--color-primary-dark); /* Dark text on light green — WCAG AA */
 	font-family: var(--font-sans);
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-semibold);
@@ -1253,7 +1253,7 @@ input[type="submit"]:hover,
 button[type="submit"]:hover {
 	background-color: var(--color-primary-dark);
 	border-color: var(--color-primary-dark);
-	color: #fff;
+	color: #fff; /* White text on dark Forest Green */
 }
 
 .read-more.btn--outline {
@@ -1626,16 +1626,16 @@ button[type="submit"]:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-	/* Dark mode — respects OS preference without breaking light brand colors.
+	/* Dark mode — uses Wise Dark Charcoal (#21231D) as the base.
 	   Intentionally minimal: only adjusts surface colors so brand colors remain legible. */
 	:root {
-		--color-bg:       #111111;
-		--color-text:     #F0F0F0;
-		--color-surface:  #1B1B1B;
-		--color-surface-alt: #252525;
-		--color-border:   #333333;
-		--color-contrast: #FFFFFF;
-		--color-muted:    #AAAAAA;
+		--color-bg:          #21231D; /* Wise Dark Charcoal */
+		--color-text:        #E8F9DC; /* Light green tint */
+		--color-surface:     #2A2C27; /* Slightly lighter charcoal */
+		--color-surface-alt: #343630;
+		--color-border:      #3A3D38;
+		--color-contrast:    #FFFFFF;
+		--color-muted:       #9AAA90; /* Desaturated sage */
 	}
 
 	.site-header {

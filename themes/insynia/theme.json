@@ -1,0 +1,71 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#9FE870",
+					"name": "Wise Bright Green"
+				},
+				{
+					"slug": "primary-dark",
+					"color": "#163300",
+					"name": "Wise Forest Green"
+				},
+				{
+					"slug": "primary-light",
+					"color": "#E8F9DC",
+					"name": "Wise Light Green"
+				},
+				{
+					"slug": "secondary",
+					"color": "#FFC091",
+					"name": "Wise Bright Orange"
+				},
+				{
+					"slug": "accent",
+					"color": "#FFEB69",
+					"name": "Wise Bright Yellow"
+				},
+				{
+					"slug": "accent-blue",
+					"color": "#A0E1E1",
+					"name": "Wise Bright Blue"
+				},
+				{
+					"slug": "background",
+					"color": "#FFFFFF",
+					"name": "Background"
+				},
+				{
+					"slug": "surface",
+					"color": "#F3F9EE",
+					"name": "Surface"
+				},
+				{
+					"slug": "text",
+					"color": "#0E0F0C",
+					"name": "Wise Content Primary"
+				},
+				{
+					"slug": "text-muted",
+					"color": "#6A6C6A",
+					"name": "Wise Content Tertiary"
+				},
+				{
+					"slug": "border",
+					"color": "#D9E8D0",
+					"name": "Border"
+				}
+			],
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false
+		},
+		"typography": {
+			"customFontSize": false
+		}
+	}
+}
