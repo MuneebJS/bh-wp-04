@@ -14,10 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Output post metadata: date, author, and categories.
  *
- * @param bool $show_author Whether to show the author. Default true.
- * @param bool $show_cats   Whether to show categories. Default true.
+ * @param bool $show_author   Whether to show the author. Default true.
+ * @param bool $show_cats     Whether to show categories. Default true.
+ * @param bool $show_comments Whether to show comments link. Default false.
  */
-function insynia_post_meta( $show_author = true, $show_cats = true ) {
+function insynia_post_meta( $show_author = true, $show_cats = true, $show_comments = false ) {
 	?>
 	<div class="entry-meta">
 		<time class="entry-date published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
@@ -44,7 +45,7 @@ function insynia_post_meta( $show_author = true, $show_cats = true ) {
 			</span>
 		<?php endif; ?>
 
-		<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
+		<?php if ( $show_comments && ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 			<span class="comments-link">
 				<span class="sep" aria-hidden="true">&bull;</span>
 				<?php comments_popup_link(); ?>
