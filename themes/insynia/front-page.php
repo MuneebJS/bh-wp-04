@@ -2,8 +2,8 @@
 /**
  * Front Page Template
  *
- * Custom front page template that doesn't display recent posts or comments.
- * This overrides the default index.php for the home page.
+ * Custom front page template that doesn't display recent posts, comments, or search.
+ * This provides a clean, focused landing page and overrides index.php for the home page.
  *
  * @package Insynia
  */
@@ -29,9 +29,12 @@ get_header();
 
 			</div><!-- .front-page-content -->
 
-		</div><!-- .content-area -->
+			<?php
+			// This front page intentionally excludes recent posts, comments, and search
+			// to provide a clean, focused landing page experience.
+			?>
 
-		<?php get_sidebar(); ?>
+		</div><!-- .content-area -->
 
 	</div><!-- .container -->
 </main><!-- #primary -->
