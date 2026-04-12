@@ -1,48 +1,30 @@
-diff --git a/themes/twentytwentyfive/templates/home.html b/themes/twentytwentyfive/templates/home.html
-index ae6870c..d460416 100644
---- a/themes/twentytwentyfive/templates/home.html
-+++ b/themes/twentytwentyfive/templates/home.html
-@@ -2,8 +2,17 @@
+diff --git a/themes/insynia/front-page.php b/themes/insynia/front-page.php
+index 5cadf72..c836bc0 100644
+--- a/themes/insynia/front-page.php
++++ b/themes/insynia/front-page.php
+@@ -2,8 +2,8 @@
+ /**
+  * Front Page Template
+  *
+- * Custom front page template that doesn't display recent posts or comments.
+- * This overrides the default index.php for the home page.
++ * Custom front page template that doesn't display recent posts, comments, or search.
++ * This provides a clean, focused landing page and overrides index.php for the home page.
+  *
+  * @package Insynia
+  */
+@@ -29,9 +29,12 @@ get_header();
  
- <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
- <main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60)">
--	<!-- wp:pattern {"slug":"twentytwentyfive/hidden-blog-heading"} /-->
--	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop"} /-->
-+	<!-- wp:group {"layout":{"type":"constrained"}} -->
-+	<div class="wp-block-group">
-+		<!-- wp:heading {"textAlign":"center","level":1} -->
-+		<h1 class="wp-block-heading has-text-align-center">Welcome</h1>
-+		<!-- /wp:heading -->
-+
-+		<!-- wp:paragraph {"align":"center"} -->
-+		<p class="has-text-align-center">Welcome to our website. Explore our content using the navigation menu above.</p>
-+		<!-- /wp:paragraph -->
-+	</div>
-+	<!-- /wp:group -->
- </main>
- <!-- /wp:group -->
+ 			</div><!-- .front-page-content -->
  
-diff --git a/themes/twentytwentyfive/templates/index.html b/themes/twentytwentyfive/templates/index.html
-index ae6870c..d460416 100644
---- a/themes/twentytwentyfive/templates/index.html
-+++ b/themes/twentytwentyfive/templates/index.html
-@@ -2,8 +2,17 @@
+-		</div><!-- .content-area -->
++			<?php
++			// This front page intentionally excludes recent posts, comments, and search
++			// to provide a clean, focused landing page experience.
++			?>
  
- <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
- <main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60)">
--	<!-- wp:pattern {"slug":"twentytwentyfive/hidden-blog-heading"} /-->
--	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop"} /-->
-+	<!-- wp:group {"layout":{"type":"constrained"}} -->
-+	<div class="wp-block-group">
-+		<!-- wp:heading {"textAlign":"center","level":1} -->
-+		<h1 class="wp-block-heading has-text-align-center">Welcome</h1>
-+		<!-- /wp:heading -->
-+
-+		<!-- wp:paragraph {"align":"center"} -->
-+		<p class="has-text-align-center">Welcome to our website. Explore our content using the navigation menu above.</p>
-+		<!-- /wp:paragraph -->
-+	</div>
-+	<!-- /wp:group -->
- </main>
- <!-- /wp:group -->
+-		<?php get_sidebar(); ?>
++		</div><!-- .content-area -->
  
+ 	</div><!-- .container -->
+ </main><!-- #primary -->
