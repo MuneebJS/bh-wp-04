@@ -1,74 +1,48 @@
-diff --git a/themes/insynia/front-page.php b/themes/insynia/front-page.php
-new file mode 100644
-index 0000000..5cadf72
---- /dev/null
-+++ b/themes/insynia/front-page.php
-@@ -0,0 +1,39 @@
-+<?php
-+/**
-+ * Front Page Template
-+ *
-+ * Custom front page template that doesn't display recent posts or comments.
-+ * This overrides the default index.php for the home page.
-+ *
-+ * @package Insynia
-+ */
-+
-+get_header();
-+?>
-+
-+<main id="primary" class="site-main">
-+	<div class="container">
-+		<div class="content-area">
-+
-+			<div class="front-page-content">
-+				<header class="page-header">
-+					<h1 class="page-title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
-+					<?php if ( get_bloginfo( 'description' ) ) : ?>
-+						<p class="site-description"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
-+					<?php endif; ?>
-+				</header>
-+
-+				<div class="welcome-content">
-+					<p><?php esc_html_e( 'Welcome to our website. Explore our content using the navigation menu above.', 'insynia' ); ?></p>
-+				</div>
-+
-+			</div><!-- .front-page-content -->
-+
-+		</div><!-- .content-area -->
-+
-+		<?php get_sidebar(); ?>
-+
-+	</div><!-- .container -->
-+</main><!-- #primary -->
-+
-+<?php get_footer(); ?>
-\ No newline at end of file
-diff --git a/themes/insynia/inc/template-tags.php b/themes/insynia/inc/template-tags.php
-index 5598e2f..1ac980f 100644
---- a/themes/insynia/inc/template-tags.php
-+++ b/themes/insynia/inc/template-tags.php
-@@ -14,10 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
- /**
-  * Output post metadata: date, author, and categories.
-  *
-- * @param bool $show_author Whether to show the author. Default true.
-- * @param bool $show_cats   Whether to show categories. Default true.
-+ * @param bool $show_author   Whether to show the author. Default true.
-+ * @param bool $show_cats     Whether to show categories. Default true.
-+ * @param bool $show_comments Whether to show comments link. Default false.
-  */
--function insynia_post_meta( $show_author = true, $show_cats = true ) {
-+function insynia_post_meta( $show_author = true, $show_cats = true, $show_comments = false ) {
- 	?>
- 	<div class="entry-meta">
- 		<time class="entry-date published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
-@@ -44,7 +45,7 @@ function insynia_post_meta( $show_author = true, $show_cats = true ) {
- 			</span>
- 		<?php endif; ?>
+diff --git a/themes/twentytwentyfive/templates/home.html b/themes/twentytwentyfive/templates/home.html
+index ae6870c..d460416 100644
+--- a/themes/twentytwentyfive/templates/home.html
++++ b/themes/twentytwentyfive/templates/home.html
+@@ -2,8 +2,17 @@
  
--		<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-+		<?php if ( $show_comments && ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
- 			<span class="comments-link">
- 				<span class="sep" aria-hidden="true">&bull;</span>
- 				<?php comments_popup_link(); ?>
+ <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+ <main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60)">
+-	<!-- wp:pattern {"slug":"twentytwentyfive/hidden-blog-heading"} /-->
+-	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop"} /-->
++	<!-- wp:group {"layout":{"type":"constrained"}} -->
++	<div class="wp-block-group">
++		<!-- wp:heading {"textAlign":"center","level":1} -->
++		<h1 class="wp-block-heading has-text-align-center">Welcome</h1>
++		<!-- /wp:heading -->
++
++		<!-- wp:paragraph {"align":"center"} -->
++		<p class="has-text-align-center">Welcome to our website. Explore our content using the navigation menu above.</p>
++		<!-- /wp:paragraph -->
++	</div>
++	<!-- /wp:group -->
+ </main>
+ <!-- /wp:group -->
+ 
+diff --git a/themes/twentytwentyfive/templates/index.html b/themes/twentytwentyfive/templates/index.html
+index ae6870c..d460416 100644
+--- a/themes/twentytwentyfive/templates/index.html
++++ b/themes/twentytwentyfive/templates/index.html
+@@ -2,8 +2,17 @@
+ 
+ <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+ <main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--60)">
+-	<!-- wp:pattern {"slug":"twentytwentyfive/hidden-blog-heading"} /-->
+-	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop"} /-->
++	<!-- wp:group {"layout":{"type":"constrained"}} -->
++	<div class="wp-block-group">
++		<!-- wp:heading {"textAlign":"center","level":1} -->
++		<h1 class="wp-block-heading has-text-align-center">Welcome</h1>
++		<!-- /wp:heading -->
++
++		<!-- wp:paragraph {"align":"center"} -->
++		<p class="has-text-align-center">Welcome to our website. Explore our content using the navigation menu above.</p>
++		<!-- /wp:paragraph -->
++	</div>
++	<!-- /wp:group -->
+ </main>
+ <!-- /wp:group -->
+ 
